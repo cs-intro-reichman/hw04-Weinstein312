@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("Intro To COmputer Science Rules"));
+        System.out.println(camelCase("   intro To COmputer Science Rules"));
     }
 
     public static String capVowelsLowRest (String string) {
@@ -74,11 +74,13 @@ public class StringOps {
         // Write your code here:
         String newString = "";
         boolean spaceAbove = false;
+        boolean letterYet = false;
+
         for (int i = 0; i < string.length(); i++) {
             
             // default spaceAbove to false, make it true if the prior char is space
             spaceAbove = false;
-            if ((i > 0) && (string.charAt(i-1) == ' ')) {
+            if ((i > 0) && (string.charAt(i-1) == ' ') && (letterYet == true)) {
                 spaceAbove = true;
             }
 
@@ -103,6 +105,10 @@ public class StringOps {
 
             if (ichar == ' ') {
                 spaceAbove = true;
+            }
+
+            if (ichar != ' ') {
+                letterYet = true;
             }
         }
         return newString;
