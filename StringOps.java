@@ -22,7 +22,10 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("   intro To COmputer Science Rules"));
+        int[] arr = allIndexOf("super mario bros wonder", 'r');
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
     }
 
     public static String capVowelsLowRest (String string) {
@@ -115,7 +118,25 @@ public class StringOps {
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        // To find the amount of char occurances to make the size of the array
+        int charCount = 0;
+
+        for (int i = 0; i < string.length(); i++) {
+            if (chr == string.charAt(i)) {
+                charCount++;
+            }
+        }
+        
+        int[] arr = new int[charCount];
+
+        int arr_index = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (chr == string.charAt(i)) {
+                arr[arr_index] = i;
+                arr_index++;
+            }
+        }
+
+        return arr;
     }
 }
